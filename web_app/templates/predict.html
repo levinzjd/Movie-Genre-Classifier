@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Upload</title>
+  <style>
+    body {
+      background: url("https://i.pinimg.com/736x/61/6f/82/616f823b04b7c52292dae7bf2a9ed46f--minimalist-film-posters-minimal-poster.jpg") no-repeat center;
+      background-size: cover;
+    }
+    h1 {
+      font-family: arial;
+      color: white;
+      text-align: center;
+    }
+    p {
+      font-family: arial;
+      font-size: 18px;
+      color: white;
+      text-align: center;
+    }
+  </style>
+<body>
+  <h1><center>PREDICTION</h1>
+  <center><img src=" {{url_for('static', filename=image_name)}}">
+  <p>Horror: {{pred[0][0]}}%</p>
+  <p>Romance: {{pred[0][1]}}%</p>
+  <p>Adventure: {{pred[0][2]}}%</p>
+  <p>Documentary: {{pred[0][3]}}%</p>
+</body>
+</html>

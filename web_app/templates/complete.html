@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Title</title>
+  <style>
+    body {
+      background-color: lightblue;
+    }
+    h1 {
+      color: white;
+      text-align: center;
+    }
+    p {
+      font-family: verdana;
+      font-size: 20px;
+      color:
+      text-align: center;
+    }
+  </style>
+<body>
+  <h1><center>File Uploaded!</h1>
+  <center><img src=" {{url_for('static', filename=image_name)}}">
+  <form id='predict-image' action="{{url_for('predict')}}" method='POST'>
+  <center><input type="submit" value='predict'/>
+</body>
+</html>
