@@ -20,6 +20,7 @@ def load_data(filename):
 	Input: pickle filename
 	Output: training data and testing data
 	'''
+
 	start_time = time.time()
 	print'-'*20+'Start loading data'+'-'*20
 	with open('../data/{}'.format(filename),'r') as f:
@@ -36,6 +37,7 @@ def generator(X_train,X_test,y_train,y_test):
 	Input: training data and testing data
 	Output: training generator and testing generator
 	'''
+
 	train_datagen = ImageDataGenerator(
 	        rescale=1./255,
 	        horizontal_flip=True)
@@ -54,6 +56,7 @@ def model_fit(filename,epochs,save=None):
 	save(optional): path for saving trained model
 	Output: training history
 	'''
+	
 	X_train,X_test,y_train,y_test = load_data(filename)
 	train_generator,test_generator = generator(X_train,X_test,y_train,y_test)
 	# dimensions of images.

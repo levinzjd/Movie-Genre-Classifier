@@ -9,6 +9,7 @@ class Load_data(object):
     '''
     Convert images to 2D arrays and create labels from meta_data
     '''
+
     def __init__(self,size,cols=None,threshold=1000,multi_label=False):
         '''
         size : size of rescaling images
@@ -16,6 +17,7 @@ class Load_data(object):
         cols: genres to be selected from meta data
         multi_label: multiple-hot encoding
         '''
+
         self.size = size
         self.cols = cols
         self.threshold = threshold
@@ -28,6 +30,7 @@ class Load_data(object):
         meta_path: path for meta data
         img_folder: folder for images
         '''
+
         self.genres = self.process_meta(meta_path)
         imgs_id =  glob.glob("{}/*.png".format(img_folder))
         return self.preprocess(imgs_id)
@@ -36,6 +39,7 @@ class Load_data(object):
         '''
         genres included
         '''
+
         return self.genres.columns
 
     def process_meta(self,path):
@@ -44,6 +48,7 @@ class Load_data(object):
         Parameters:
         path: path for meta_data
         '''
+
         df = pd.read_csv(path)
         df.dropna(subset=['Genre'],inplace=True)
         df.drop_duplicates(subset=['imdbID'], keep='first', inplace=True)
@@ -67,6 +72,7 @@ class Load_data(object):
         Input: img_ids
         Output: image 2D arrays and labels
         '''
+        
         p =re.compile(r'tt\w+')
         Xs,ys = [],[]
         for img in img_ids:

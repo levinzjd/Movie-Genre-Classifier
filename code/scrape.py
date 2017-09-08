@@ -11,6 +11,7 @@ def scrape_meta_posters(mids):
     Input: IMDB ids
     Output: meta data and posters
     '''
+    
     meta_info = []
     for id_ in mids:
         url_meta = "http://www.omdbapi.com/?apikey={}&i={}".format(api_key,id_)
