@@ -11,10 +11,15 @@ from Metrics import f1,recall,precision
 from matplotlib import pyplot as plt
 import keras
 
-# sys argv
+
 
 
 def load_data(filename):
+	'''
+	Load data from pickle file, then split data to training set and test set.
+	Input: pickle filename
+	Output: training data and testing data
+	'''
 	start_time = time.time()
 	print'-'*20+'Start loading data'+'-'*20
 	with open('../data/{}'.format(filename),'r') as f:
@@ -26,6 +31,11 @@ def load_data(filename):
 	return 	X_train,X_test,y_train,y_test
 
 def generator(X_train,X_test,y_train,y_test):
+	'''
+	Initialize data generator for model training
+	Input: training data and testing data
+	Output: training generator and testing generator
+	'''
 	train_datagen = ImageDataGenerator(
 	        rescale=1./255,
 	        horizontal_flip=True)
@@ -36,6 +46,14 @@ def generator(X_train,X_test,y_train,y_test):
 
 
 def model_fit(filename,epochs,save=None):
+	'''
+	load training data and testing data, compile and train CNN model, return training history
+	Parameters
+	filename: pickle data
+	epochs: number of epochs for training
+	save(optional): path for saving trained model
+	Output: training history
+	'''
 	X_train,X_test,y_train,y_test = load_data(filename)
 	train_generator,test_generator = generator(X_train,X_test,y_train,y_test)
 	# dimensions of images.

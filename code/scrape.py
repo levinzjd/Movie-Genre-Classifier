@@ -6,6 +6,11 @@ import sys
 
 # scrape movie posters and corresponding meta data
 def scrape_meta_posters(mids):
+    '''
+    Scrape posters and metadata from IMDB using OMDB API
+    Input: IMDB ids
+    Output: meta data and posters
+    '''
     meta_info = []
     for id_ in mids:
         url_meta = "http://www.omdbapi.com/?apikey={}&i={}".format(api_key,id_)
